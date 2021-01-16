@@ -11,6 +11,8 @@ import MenuItem from './components/MenuItem.js';
 
 import PrivateRoute from './components/PrivateRoute';
 
+import Cart from './components/Cart';
+
 export default () => {
     const name = useSelector(state => state.user.name);
 
@@ -45,6 +47,9 @@ export default () => {
                     </Switch>
                      
                 </PageBody>
+
+                <Cart></Cart>
+
             </Container>
 
         </BrowserRouter>
