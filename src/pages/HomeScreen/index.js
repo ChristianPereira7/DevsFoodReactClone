@@ -28,7 +28,9 @@ export default () => {
         getCategories();
     }, []);
 
-   
+    useEffect(() => {
+        
+    }, [activeCategory]);
 
     return (
         <Container>
@@ -37,7 +39,7 @@ export default () => {
             {categories.length > 0 &&
 
                     <CategoryArea>
-                        Selecione uma categoria
+                        Selecione uma categoria 
                         
                         <CategoryList>
 
@@ -45,12 +47,15 @@ export default () => {
                              title:'Todas as categorias',
                              image:'/assets/food-and-restaurant.png'}}
                              activeCategory={activeCategory}
+                             setActiveCategory={setActiveCategory}
                              />
                             {categories.map((item, k) => (
                                 <CategoryItem 
                                 key={k} 
                                 data={item}
                                 activeCategory={activeCategory}
+                                setActiveCategory={setActiveCategory}
+                                
                                 />
                             ))}
                         </CategoryList>

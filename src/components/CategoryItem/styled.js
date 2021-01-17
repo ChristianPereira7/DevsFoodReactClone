@@ -9,9 +9,12 @@ export const Container = styled.div`
     align-items: center;
     border-radius: 20px;  
     margin-right: 10px;
+    
 `;
 
 export const CategoryImage = styled.img`
     width: 55px;
     height: 55px;
+    cursor: pointer;
+    transition: all ease .2s;
 `;
