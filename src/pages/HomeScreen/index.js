@@ -2,6 +2,8 @@ import React, {useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { Container, CategoryArea, CategoryList } from './styled';
 
+import ReactToolTip from 'react-tooltip';
+
 import Header from '../../components/Header';
 
 import api from '../../api';
@@ -20,10 +22,11 @@ export default () => {
 
     useEffect(() => {
         const getCategories = async() => {
-        const cat = await api.getCategories();
-        if(cat.error  == ''){
-            setCategories( cat.result );
-        }
+            const cat = await api.getCategories();
+            if(cat.error  == ''){
+                setCategories( cat.result );
+            }
+            ReactToolTip.rebuild();
         };
         getCategories();
     }, []);
@@ -44,7 +47,7 @@ export default () => {
                         <CategoryList>
 
                             <CategoryItem data={{id:'', 
-                             title:'Todas as categorias',
+                             name:'Todas as categorias',
                              image:'/assets/food-and-restaurant.png'}}
                              activeCategory={activeCategory}
                              setActiveCategory={setActiveCategory}
