@@ -6,9 +6,11 @@ export const Container = styled.div`
 `;
 
 export const CategoryArea = styled.div`
-
+    color: #FFF;
+    margin-top: 20px;
 `;
 
 export const CategoryList = styled.div`
-
+     display: flex;
+     margin-top: 10px;
 `;
