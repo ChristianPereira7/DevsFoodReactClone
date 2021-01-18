@@ -14,3 +14,11 @@ export const CategoryList = styled.div`
      display: flex;
      margin-top: 10px;
 `;
+
+export const ProductArea = styled.div`
+
+`;
+
+export const ProductList = styled.div`
+
+`;
