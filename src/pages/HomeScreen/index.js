@@ -1,6 +1,13 @@
 import React, {useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import { Container, CategoryArea, CategoryList, ProductList, ProductArea } from './styled';
+import { Container,
+         CategoryArea, 
+         CategoryList, 
+         ProductList, 
+         ProductArea, 
+         ProductPaginationArea,
+         ProductPaginationItem        
+        } from './styled';
 
 import ReactToolTip from 'react-tooltip';
 
@@ -11,6 +18,7 @@ import api from '../../api';
 import CategoryItem from '../../components/CategoryItem';
 
 import ProductItem from '../../components/ProductItem';
+
 
 export default () => {
 
@@ -24,10 +32,17 @@ export default () => {
 
     const [ products, setProducts ] = useState('');
 
+    const [totalPages, setTotalPages ] = useState(0);
+
+    const [activePage, setActivePage ] = useState(0);
+
+
     const getProducts = async () => {
         const prods = await api.getProducts();
         if(prods.error == ''){
             setProducts(prods.result.data);
+            setTotalPages(prods.result.pages);
+            setActivePage(prods.result.page);
         }
     }
 
@@ -88,6 +103,16 @@ export default () => {
                         ))}
                     </ProductList>
                 </ProductArea>
+            }
+            TOTAL={totalPages}
+            {totalPages > 0  &&
+                <ProductPaginationArea>
+                    {Array(totalPages).fill(0).map((item, k) =>(
+                        <ProductPaginationItem key={k}>
+                            {k + 1}
+                        </ProductPaginationItem>
+                    ))}
+                </ProductPaginationArea>
             }
         </Container>
     );
