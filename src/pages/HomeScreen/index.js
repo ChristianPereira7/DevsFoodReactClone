@@ -36,12 +36,12 @@ export default () => {
 
     const [totalPages, setTotalPages ] = useState(0);
 
-    const [activePage, setActivePage ] = useState(0);
+    const [activePage, setActivePage ] = useState(1);
 
     const [activeSearch, setActiveSearch ] = useState('');
 
     const getProducts = async () => {
-        const prods = await api.getProducts();
+        const prods = await api.getProducts(activeCategory, activePage, activeSearch);
         if(prods.error == ''){
             setProducts(prods.result.data);
             setTotalPages(prods.result.pages);
@@ -49,11 +49,15 @@ export default () => {
         }
     }
 
+
     useEffect(() => {
         clearTimeout(searchTimer);
         searchTimer = setTimeout(() => {
+            setActiveSearch(headerSearch);
         }, 2000);
     }, [headerSearch]);
+
+
 
     useEffect(() => {
         const getCategories = async() => {
