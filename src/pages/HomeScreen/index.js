@@ -21,6 +21,8 @@ import ProductItem from '../../components/ProductItem';
 
 import Modal from '../../components/Modal';
 
+import ModalProduct from '../../components/ModalProduct';
+
 
 let searchTimer = null;
 
@@ -43,6 +45,7 @@ export default () => {
     const [activeSearch, setActiveSearch ] = useState('');
 
     const [ modalStatus, setModalStatus ] = useState(true);
+
 
     const getProducts = async () => {
         const prods = await api.getProducts(activeCategory, activePage, activeSearch);
@@ -139,7 +142,7 @@ export default () => {
             }
 
             <Modal status={modalStatus} setStatus={setModalStatus}> 
-                Conteúdo do Modal
+                <ModalProduct/>
             </Modal>
         </Container>
     );
