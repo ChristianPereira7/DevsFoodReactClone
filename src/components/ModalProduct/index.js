@@ -8,19 +8,20 @@ import { Container,
          ProductButtons } from './styled';
 
 
-export default () => {
+export default ({data}) => {
 
 
     return(
         <Container>          
            <ProductArea>
-                <ProductPhoto src=""/>
+                <ProductPhoto src={data.image}/>
                     <ProductInfoArea>
                         <ProductDetails>
-
+                            {data.name} <br/>
+                            {data.ingredients}
                         </ProductDetails>       
                         <ProductQuantityArea>
-
+                           {data.price}
                         </ProductQuantityArea>
                     </ProductInfoArea>
            </ProductArea>

@@ -44,7 +44,9 @@ export default () => {
 
     const [activeSearch, setActiveSearch ] = useState('');
 
-    const [ modalStatus, setModalStatus ] = useState(true);
+    const [ modalStatus, setModalStatus ] = useState(false);
+
+    const [ modalData, setModalData ] = useState({});
 
 
     const getProducts = async () => {
@@ -81,6 +83,11 @@ export default () => {
         getProducts([]);
         getProducts();
     }, [activeCategory, activePage, activeSearch]);
+
+    const handleProductClick = (data) => {
+        setModalData(data);
+        setModalStatus(true);
+    }
 
     return (
         <Container>
@@ -120,6 +127,7 @@ export default () => {
                             <ProductItem
                                 key={k}
                                 data={item} 
+                                onClick={handleProductClick}
                             />
                         ))}
                     </ProductList>
@@ -142,7 +150,7 @@ export default () => {
             }
 
             <Modal status={modalStatus} setStatus={setModalStatus}> 
-                <ModalProduct/>
+                <ModalProduct data={modalData}/>
             </Modal>
         </Container>
     );
