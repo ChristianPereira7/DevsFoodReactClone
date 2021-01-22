@@ -2,10 +2,13 @@ import React from 'react';
 import { Container,
          ProductArea,
          ProductPhoto,
+         ProductName,
+         ProductIngredients,
          ProductInfoArea,
          ProductDetails,
          ProductQuantityArea,
-         ProductButtons } from './styled';
+         ProductButtons,
+         ProductButton } from './styled';
 
 
 export default ({data}) => {
@@ -17,16 +20,17 @@ export default ({data}) => {
                 <ProductPhoto src={data.image}/>
                     <ProductInfoArea>
                         <ProductDetails>
-                            {data.name} <br/>
-                            {data.ingredients}
+                            <ProductName>{data.name}</ProductName>
+                            <ProductIngredients>{data.ingredients}</ProductIngredients>
                         </ProductDetails>       
                         <ProductQuantityArea>
-                           {data.price}
+                          
                         </ProductQuantityArea>
                     </ProductInfoArea>
            </ProductArea>
            <ProductButtons>
-
+                <ProductButton>Cancelar</ProductButton>
+                <ProductButton>Adicionar ao Carrinho</ProductButton>
            </ProductButtons>
         </Container>
     );
