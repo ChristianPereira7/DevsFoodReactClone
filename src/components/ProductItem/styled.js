@@ -55,4 +55,5 @@ export const ProductIngredients = styled.div`
 
 export const ProductButton = styled.img`
     width: 15px;
+    
 `;
