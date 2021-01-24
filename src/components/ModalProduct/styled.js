@@ -29,13 +29,15 @@ export const ProductDetails = styled.div`
 
 export const ProductQuantityArea = styled.div`
    height: 50px;
-   background-color: #0000FF;
+   display: flex;
+   justify-content: space-between;
 `;
 
 export const ProductButtons = styled.div`
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 `;
 
 export const ProductName = styled.div`
@@ -55,8 +57,36 @@ export const ProductButton = styled.button`
     box-shadow: 4px 5px 0px rgba(0, 0, 0, 0.16);
     border-radius: 5px;
     color: #FFF;
-    font-size: 22px;
+    font-size: ${props=>props.small ? '13px' : '22px'};
     font-weight: bold;
-    padding: 10px 20px;
+    padding: ${props=>props.small ? '5px 10px' : '10px 20px'};
     margin-left: 10px;
 `;
+
+
+export const ProductQuantity = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #073C07;
+    border-radius: 5px;
+`;  
+
+export const ProductQtImage = styled.img`
+    width: 15px;
+    height: auto;
+`;
+
+export const ProductQtText = styled.div`
+    font-size: 25px;
+    font-weight: bold;    
+    padding: 10px;  
+    color: #FFF;
+`;
+
+export const ProductPrice = styled.div`
+    font-size: 30px;
+    font-weight: bold;
+`;
+
+
