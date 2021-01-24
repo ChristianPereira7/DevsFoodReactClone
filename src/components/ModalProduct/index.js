@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Container,
          ProductArea,
          ProductPhoto,
@@ -16,6 +17,8 @@ import { Container,
 
 
 export default ({data, setStatus}) => {
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         setQt(1);
@@ -38,6 +41,13 @@ export default ({data, setStatus}) => {
     }
 
     const handleAddToCart = () => {
+       dispatch({
+            type: 'ADD_PRODUCT',
+            payload: {
+               data,
+               qt
+            }
+       });
         setStatus(false);
     }
 
