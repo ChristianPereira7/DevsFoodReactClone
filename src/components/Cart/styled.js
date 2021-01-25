@@ -32,9 +32,43 @@ export const  CartText = styled.div`
 
 export const  CartBody = styled.div`
     display: ${props=> props.show ? 'block' : 'none'};
+    color: #FFF;
 `;
 
 export const CartDown = styled.img`
     width: 20px;
     padding-left: 60px; 
+`;        
+
+export const ProductsArea = styled.div`
+ 
+`;
+      
+export const ProductItem = styled.div`
+  display: flex;
+`;
+  
+export const ProductPhoto = styled.img`
+    width: 64px;
+    height: auto;
+    border-radius: 5px;
+    margin: 0 10px;
+    margin-bottom: 10px;
+`;
+
+export const ProductInfoArea = styled.div`
+    flex: 1;
+`;
+
+export const ProductName= styled.div`
+    font-size: 15px;
+    font-weight: bold;  
+`;
+
+export const ProductPrice = styled.div`
+     font-size: 13px;
+`;
+
+export const  ProductQuantityArea = styled.div`
+    
 `;

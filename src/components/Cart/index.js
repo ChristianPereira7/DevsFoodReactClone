@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
-import { CartArea, CartHeader, CartIcon, CartText, CartBody, CartDown } from './styled';
+import { CartArea,
+         CartHeader,
+          CartIcon, 
+          CartText, 
+          CartBody, 
+          CartDown, 
+          ProductsArea,
+          ProductItem, 
+          ProductPhoto,
+          ProductInfoArea,
+          ProductName,
+          ProductPrice,
+          ProductQuantityArea } from './styled';
 import { useSelector } from 'react-redux';
 
 
@@ -7,7 +19,7 @@ export default () => {
 
     const products = useSelector(state => state.cart.products);  
 
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
 
     const [closed, setClosed] = useState(false);
 
@@ -26,7 +38,19 @@ export default () => {
             }
             </CartHeader>
             <CartBody show={show}>
-                <div style={{width: 50, height:300}}></div>
+                <ProductsArea>
+                    {products.map((item, k)=>(
+                        <ProductItem key={k}>
+                            <ProductPhoto src={item.image}/>
+                            <ProductInfoArea>
+                                <ProductName>{item.name}</ProductName>
+                                <ProductPrice>R$ {item.price.toFixed(2)}</ProductPrice>
+                            </ProductInfoArea>
+                        <ProductQuantityArea></ProductQuantityArea>
+                    </ProductItem>
+                    ))}
+                    
+                </ProductsArea>
             </CartBody>
         </CartArea>
         
