@@ -31,5 +31,10 @@ export const  CartText = styled.div`
 `;
 
 export const  CartBody = styled.div`
-  
+    display: ${props=> props.show ? 'block' : 'none'};
+`;
+
+export const CartDown = styled.img`
+    width: 20px;
+    padding-left: 60px; 
 `;
