@@ -11,11 +11,15 @@ import { CartArea,
           ProductInfoArea,
           ProductName,
           ProductPrice,
-          ProductQuantityArea } from './styled';
-import { useSelector } from 'react-redux';
+          ProductQuantityArea,
+          ProductQtIcon,
+          ProductQtText } from './styled';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 export default () => {
+
+    const dispatch = useDispatch();
 
     const products = useSelector(state => state.cart.products);  
 
@@ -25,6 +29,16 @@ export default () => {
 
     const handleCartClick = () => {
         setShow(!show);
+    }
+
+    const handleProductChange = (key, type) => {
+        dispatch({
+            type: 'CHANGE_PRODUCT',
+            payload: { 
+                key,
+                type
+            }
+        });
     }
 
     return(
@@ -46,7 +60,17 @@ export default () => {
                                 <ProductName>{item.name}</ProductName>
                                 <ProductPrice>R$ {item.price.toFixed(2)}</ProductPrice>
                             </ProductInfoArea>
-                        <ProductQuantityArea></ProductQuantityArea>
+                        <ProductQuantityArea>
+                            <ProductQtIcon 
+                                src="/assets/minus.png"
+                                onClick={() =>handleProductChange(k, '-')}
+                            />
+                            <ProductQtText>{item.qt}</ProductQtText>
+                            <ProductQtIcon 
+                                src="/assets/plus.png"
+                                onClick={() =>handleProductChange(k, '+')}
+                            />
+                        </ProductQuantityArea>
                     </ProductItem>
                     ))}
                     

@@ -42,7 +42,7 @@ export default ({data, setStatus}) => {
 
     const handleAddToCart = () => {
        dispatch({
-            types: 'ADD_PRODUCT',
+            type: 'ADD_PRODUCT',
             payload: {
                data,
                qt
