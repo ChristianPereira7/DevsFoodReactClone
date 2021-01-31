@@ -83,6 +83,6 @@ export const ProductQtText = styled.div`
 export const ProductQtIcon = styled.img`
     width: 13px;
     height: auto;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
 `;  
