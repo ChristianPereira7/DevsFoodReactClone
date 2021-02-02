@@ -61,7 +61,7 @@ export const ProductInfoArea = styled.div`
 `;
 
 export const ProductName= styled.div`
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;  
 `;
 
